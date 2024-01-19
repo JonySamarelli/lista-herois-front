@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card__content" *ngIf="heroi; else novoHeroiContent">
+    <h2 class="card__title">{{heroi.nomeHeroi}}</h2>
+    <h2 class="card__title">Nome: {{heroi.nome}}</h2>
+    <p class="card__text">Data Nascimento: {{heroi.dataNascimento | date:'dd/MM/yyyy'}}</p>
+    <p class="card__text">Altura: {{heroi.altura}} m</p>
+    <p class="card__text">Peso: {{heroi.peso}} Kg</p>
+    <div class="card__buttons">
+      <button (click)="Detalhes(heroi.id)" class="card__button card__button--view">Ver</button>
+      <button (click)="Editar(heroi)" class="card__button card__button--edit">Editar</button>
+      <button (click)="Apagar(heroi.id)" class="card__button card__button--delete">Apagar</button>
+    </div>
+  </div>
+  <ng-template #novoHeroiContent>
+    <div class="card__content">
+      <h2 class="card__title">Adicionar Novo Herói</h2>
+      <form class="card__form">
+        <input class="card__form--input" type="text" name="nome" placeholder="Nome" [(ngModel)]="novoHero.nome"/>
+        <input class="card__form--input" type="text" name="nomeHeroi" placeholder="Nome do Herói" [(ngModel)]="novoHero.nomeHeroi"/>
+        <input class="card__form--input" type="date" name="dataNascimento" placeholder="Data de Nascimento" [(ngModel)]="novoHero.dataNascimento"/>
+        <input class="card__form--input" type="number" step="0.01" min="0" name="altura" placeholder="Altura" [(ngModel)]="novoHero.altura"/>
+        <input class="card__form--input" type="number" step="0.01" min="0" name="peso" placeholder="Peso" [(ngModel)]="novoHero.peso"/>
+        <input class="card__form--input" type="text" name="poderesSelecionados" [placeholder]="'Qnt. Poderes: ' + novoHero.listaSuperpoderes?.length" disabled/>
+        <button (click)="AdicionarPoder()" class="card__button card__button--edit">Lista de Poderes</button>
+      </form>
+      <div class="card__buttons">
+        <button (click)="Adicionar()" id="btnAdicionar" class="card__button card__button--view">Adicionar</button>
+        <button (click)="Limpar()" class="card__button card__button--delete">Limpar</button>
+      </div>
+    </div>
+  </ng-template>
+</div>
