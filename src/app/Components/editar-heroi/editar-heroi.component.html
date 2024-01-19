@@ -1,0 +1,44 @@
+<div class="heroi">
+  <div class="heroi__header">
+    <h2 class="heroi__titulo">Editar Herói</h2>
+    <button (click)="cancelarEdicao()" class="heroi__sair">Cancelar</button>
+  </div>
+
+  <form class="heroi__form" (submit)="salvarAlteracoes()">
+    <div class="heroi__propriedades">
+      <label class="heroi__propriedade">
+        <strong>Nome:</strong>
+        <input [(ngModel)]="heroi.nome" name="nome">
+      </label>
+      <label class="heroi__propriedade">
+        <strong>Nome de Herói:</strong>
+        <input [(ngModel)]="heroi.nomeHeroi" name="nomeHeroi">
+      </label>
+      <label class="heroi__propriedade">
+        <strong>Data Nascimento:</strong>
+        <input [(ngModel)]="this.dataAniversarioFormatado" name="dataNascimento" type="date">
+      </label>
+      <label class="heroi__propriedade">
+        <strong>Altura:</strong>
+        <input [(ngModel)]="heroi.altura" name="altura" type="number">
+      </label>
+      <label class="heroi__propriedade">
+        <strong>Peso:</strong>
+        <input [(ngModel)]="heroi.peso" name="peso" type="number">
+      </label>
+    </div>
+
+    <h3 class="heroi__subtitulo">Superpoderes</h3>
+
+    <ul class="heroi__lista">
+      <li class="heroi__item" *ngFor="let superpoder of listaSuperpoderes">
+        <label (click)="SelecionaPoder(superpoder.id)" [id]="'label--' + superpoder.id" class="heroi__checkbox__label">
+          <input type="checkbox" [id]="'checkbox--' + superpoder.id" class="heroi__checkbox">
+          {{superpoder.superpoder}}
+        </label>
+      </li>
+    </ul>
+
+    <button type="submit" class="heroi__salvar">Salvar Alterações</button>
+  </form>
+</div>
