@@ -1,0 +1,40 @@
+<div class="superpoderes">
+  <div *ngIf="!superpoderesSelecionados.length, else botaoAdicionar">
+    <div class="superpoderes__header">
+      <h2 class="superpoderes__titulo">Lista de Superpoderes</h2>
+      <button (click)="FechaLista()" class="superpoderes__sair">sair</button>
+    </div>
+
+    <form class="superpoderes__form">
+      <label for="novo-superpoder" class="superpoderes__label">Criar novo superpoder:</label>
+      <div class="superpoderes__form__input">
+        <input type="text" id="novo-superpoder" placeholder="Super Poder" name="superpoder" class="superpoderes__input" [(ngModel)]="novoSuperpoder.superpoder">
+        <input type="text" id="novo-descricao" placeholder="Descrição" name="descricao" class="superpoderes__input" [(ngModel)]="novoSuperpoder.descricao">
+      </div>
+    </form>
+
+    <button type="submit" (click)="CriarSuperPoder()" class="superpoderes__button">Criar</button>
+  </div>
+  <ng-template #botaoAdicionar>
+    <div class="superpoderes__header">
+      <h2 class="superpoderes__titulo">Adicionar Superpoderes</h2>
+      <button (click)="FechaLista()" class="superpoderes__sair">sair</button>
+    </div>
+    <div class="superpoderes__header">
+      <button type="submit" (click)="AdicionaSuperPoder()" class="superpoderes__button--adicionar">Adicionar</button>
+      <button type="submit" (click)="ApagarSuperPoderes()" class="superpoderes__button--remover">Apagar</button>
+
+    </div>
+  </ng-template>
+
+  <hr class="superpoderes__hr">
+
+  <ul class="superpoderes__lista">
+    <li class="superpoderes__item" *ngFor="let superpoder of listaSuperpoderes">
+      <label (click)="SelecionaPoder(superpoder.id)" [id]="'label--' + superpoder.id" class="superpoderes__checkbox__label">
+        <input type="checkbox" [id]="'checkbox--' + superpoder.id" class="superpoderes__checkbox">
+        {{superpoder.superpoder}}
+      </label>
+    </li>
+  </ul>
+</div>

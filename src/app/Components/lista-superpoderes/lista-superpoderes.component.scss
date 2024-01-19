@@ -1,0 +1,154 @@
+:host {
+  position: absolute;
+  width: 80%;
+  min-height: 80%;
+  margin-top: 4%;
+  padding: 20px;
+  border-radius: 48px;
+  color: black;
+  background-color: #f5f5f5;
+  opacity: 0.92;
+  display: none;
+}
+
+.superpoderes {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    &__input{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      & input {
+        width: 40%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__sair {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    background-color: #dc3545;
+
+    &:hover {
+      background-color: #c82333;
+    }
+
+    &:active {
+      background-color: #bd2130;
+    }
+  }
+
+  &__hr {
+    margin: 20px 0;
+  }
+
+  &__lista {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 28px;
+  }
+
+  &__label {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  &__input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  &__checkbox {
+    display: none;
+    stroke-width: 2px;
+
+    &__label {
+      user-select: hidden;
+      font-size: 1rem;
+      margin-bottom: 5px;
+      padding: 0.4rem 0.8rem;
+      border-radius: 1000px;
+      color: black;
+      background-color: #ccc;
+      transition: all 0.2s ease-in-out;
+
+      &--active {
+        color: black;
+        background-color: #25c2a0;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    background-color: #007bff;
+
+    &:hover {
+      background-color: #0069d9;
+    }
+
+    &:active {
+      background-color: #0062cc;
+    }
+
+    &--adicionar {
+      width: 100%;
+      padding: 10px 20px;
+      border: none;
+      margin-top: 20px;
+      font-size: 16px;
+      background-color: #0c5;
+
+      &:hover {
+        background-color: #0a4;
+      }
+
+      &:active {
+        background-color: #0b0;
+      }
+    }
+
+    &--remover {
+      width: 100%;
+      padding: 10px 20px;
+      border: none;
+      margin-top: 20px;
+      font-size: 16px;
+      background-color: #c82333;
+
+      &:hover {
+        background-color: #bd2130;
+      }
+
+      &:active {
+        background-color: #b21f2d;
+      }
+    }
+  }
+}
