@@ -1,0 +1,23 @@
+<div class="heroi">
+  <div class="heroi__header">
+    <h2 class="heroi__titulo">Detalhes do Herói</h2>
+    <button (click)="FechaLista()" class="heroi__sair">sair</button>
+  </div>
+
+  <div class="heroi__propriedades">
+    <p class="heroi__propriedade"><strong>Nome:</strong> {{heroi?.nome}}</p>
+    <p class="heroi__propriedade"><strong>Nome de Herói:</strong> {{heroi?.nomeHeroi}}</p>
+    <p class="heroi__propriedade"><strong>Data Nascimento:</strong> {{heroi?.dataNascimento | date:'dd/MM/yyyy'}}</p>
+    <p class="heroi__propriedade"><strong>Altura:</strong> {{heroi?.altura}}</p>
+    <p class="heroi__propriedade"><strong>Peso:</strong> {{heroi?.peso}}</p>
+  </div>
+
+  <h3 class="heroi__subtitulo">Superpoderes</h3>
+
+  <ul class="heroi__superpoderes">
+    <li class="heroi__superpoder" *ngFor="let superpoder of heroi?.listaSuperpoderes">
+      <p class="heroi__propriedade"><strong>Superpoder:</strong> {{superpoder?.superpoder}}</p>
+      <p class="heroi__propriedade"><strong>Descrição:</strong> {{superpoder?.descricao}}</p>
+    </li>
+  </ul>
+</div>
